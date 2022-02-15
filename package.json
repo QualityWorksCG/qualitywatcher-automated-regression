@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
     "test-suites": "./node_modules/.bin/wdio wdio.conf.js --spec test-suites/*",
-    "login": "./node_modules/.bin/wdio wdio.conf.js --suite login",
+    "login": "npx wdio wdio.local.conf.js --suite login",
     "registration": "./node_modules/.bin/wdio wdio.conf.js --suite registration",
     "forgotPassword": "./node_modules/.bin/wdio wdio.conf.js --suite forgotPassword",
     "testSuites": "./node_modules/.bin/wdio wdio.conf.js --suite testSuites"

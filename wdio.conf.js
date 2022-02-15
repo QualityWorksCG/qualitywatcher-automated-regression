@@ -9,6 +9,7 @@ if (!ENV || !["stg", "prod"].includes(ENV)) {
   );
 
   ENV = "stg";
+  process.env.ENV = ENV;
 }
 
 exports.config = {
