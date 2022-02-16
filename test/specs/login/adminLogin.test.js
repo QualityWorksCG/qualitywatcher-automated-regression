@@ -28,7 +28,7 @@ describe("Admin User Authentication", () => {
     );
   });
 
-  it("Should not login the admin user with invalid email and valid password", async () => {
+  it.skip("Should not login the admin user with invalid email and valid password", async () => {
     // Logs in the user
     await LoginPage.login(
       UserData.invalid.username,
