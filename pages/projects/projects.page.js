@@ -4,7 +4,7 @@ class ProjectsPage {
   }
 
   async clickOnFirstProjectInList() {
-    await this.firstProjectInList.waitForClickable({ timeout: 100000 });
+    await this.firstProjectInList.waitForClickable({ timeout: 5000 });
     await this.firstProjectInList.click();
   }
   get launchButton() {
@@ -42,16 +42,16 @@ class ProjectsPage {
   }
 
   async clickProjectLaunch() {
-    await this.launchButton.waitForDisplayed({ timeout: 30000 });
-    await this.launchButton.click();
+    await this.firstProjectInList.waitForDisplayed({ timeout: 60000 });
+    await this.firstProjectInList.click();
   }
 
   async waitForUserIsInProjectPage() {
-    await this.projectPageTitleElement.waitForDisplayed({ timeout: 30000 });
+    await this.projectPageTitleElement.waitForDisplayed({ timeout: 60000 });
   }
 
   async goThroughIntroModal() {
-    await this.nextStepButton.waitForExist({ timeout: 30000 });
+    await this.nextStepButton.waitForExist({ timeout: 60000 });
     let i = 0;
     while (i < 8) {
       await this.nextStepButton.click();
@@ -62,7 +62,7 @@ class ProjectsPage {
   }
 
   async createTheFirstProject(projectName, description, type) {
-    await this.projectNameField.waitForExist({ timeout: 30000 });
+    await this.projectNameField.waitForExist({ timeout: 60000 });
     await this.projectNameField.setValue(projectName);
     await this.projectDescriptionField.setValue(description);
     await this.projectType.setValue(type);
