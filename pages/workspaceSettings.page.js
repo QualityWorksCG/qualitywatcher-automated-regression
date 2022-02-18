@@ -93,7 +93,7 @@ class WorkspaceSettings {
   }
 
   async checkConfirmationUrl(confirmationUrl) {
-    
+    browser.url(confirmationUrl);
   }
 }
 
