@@ -42,7 +42,7 @@ export const getMailSlurpSecretValue = async () => {
         // Decrypts secret using the associated KMS key.
         // Depending on whether the secret is a string or binary, one of these fields will be populated.
         if ("SecretString" in data) {
-          secret = data.SecretString;
+          secret = JSON.parse(data.SecretString);
           resolve(secret);
         } else {
           let buff = new Buffer.from(data.SecretBinary, "base64");

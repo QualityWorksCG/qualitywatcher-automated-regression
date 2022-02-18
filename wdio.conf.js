@@ -41,6 +41,7 @@ exports.config = {
     registration: ["./test/specs/registration/*.js"],
     forgotPassword: ["./test/specs/forgotPassword/*.js"],
     testSuites: ["./test/specs/testSuites/*.js"],
+    manageTeam: ["./test/specs/manageTeam/*.js"],
   },
   // Patterns to exclude.
   exclude: [
