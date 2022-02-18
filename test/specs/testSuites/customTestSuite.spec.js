@@ -2,9 +2,9 @@ import loginPage from "../../../pages/login/login.page";
 import projectsPage from "../../../pages/projects/projects.page";
 import navigationBar from "../../../pages/navigation/navigation.page";
 import testSuitePage from "../../../pages/test-suites/testSuite.page";
-import testCasesPage from "../../../pages/test-suites/testCases.page";
 import userData from "../../../data/users.data";
-import commonUtils from "../../../utils/common.utils";
+
+import { faker } from "@faker-js/faker";
 
 describe("Verify functionality on test suites", () => {
   beforeEach(async () => {
@@ -18,10 +18,10 @@ describe("Verify functionality on test suites", () => {
   });
 
   it("Verify that Admin can successfully create a custom test suite", async () => {
-    let title = "Auto_Test_400_" + commonUtils.randomString(5);
+    let title = "Auto_Test_400_" + faker.random.alphaNumeric(5);
     let description =
       "Testing custom test suite creation with no test case" +
-      commonUtils.randomString(10);
+      faker.random.alphaNumeric(5);
     await testSuitePage.clickNewTestSuiteButton();
     await testSuitePage.createCustomTestSuite(title, description);
     const expectedTitle = await testSuitePage.getTitleDataFromTable(title);
@@ -34,7 +34,7 @@ describe("Verify functionality on test suites", () => {
 
   it("Verify that Admin cannot create custom test suite with blank Title and Description entered", async () => {
     let description =
-      "Custom test suite with blank title" + commonUtils.randomString(10);
+      "Custom test suite with blank title" + faker.random.alphaNumeric(5);
     await testSuitePage.clickNewTestSuiteButton();
     await testSuitePage.createCustomTestSuite("", description);
     let errorMsg = await testSuitePage.getCustomTitleValidationError();
@@ -43,7 +43,7 @@ describe("Verify functionality on test suites", () => {
 
   it("Admin cannot create custom test suite with Title and blank Description entered", async () => {
     let title =
-      "Custom test suite with blank description" + commonUtils.randomString(5);
+      "Custom test suite with blank description" + faker.random.alphaNumeric(5);
     await testSuitePage.clickNewTestSuiteButton();
     await testSuitePage.createCustomTestSuite(title, "");
     let errorMsg = await testSuitePage.getCustomDescriptionValidationError();
@@ -51,7 +51,7 @@ describe("Verify functionality on test suites", () => {
   });
 
   it("Verify that Admin cannot create custom test suite with blank Title and blank Description entered", async () => {
-    let title = "Automation test" + commonUtils.randomString(5);
+    let title = "Automation test" + faker.random.alphaNumeric(5);
     await testSuitePage.clickNewTestSuiteButton();
     await testSuitePage.createCustomTestSuite("", "");
     let errorMsgTitle = await testSuitePage.getCustomTitleValidationError();
